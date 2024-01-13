@@ -10,10 +10,10 @@ public class WeatherApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the city you want to search for location:");
-        String city=scanner.nextLine();
+        String city = scanner.nextLine();
         scanner.close();
-        String apiKey = "be25e067c8bf41e733a1838e3a6e2694";
-        
+        String apiKey = "your_api_key";
+
         try {
             URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -28,8 +28,6 @@ public class WeatherApp {
             }
             reader.close();
             // WeatherData.java
-  
-
 
             Gson gson = new Gson();
             WeatherData weatherData = gson.fromJson(response.toString(), WeatherData.class);
